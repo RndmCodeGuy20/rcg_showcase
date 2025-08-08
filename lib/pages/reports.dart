@@ -10,6 +10,21 @@ class ReportsPage extends StatefulWidget {
 }
 
 class _ReportsPageState extends State<ReportsPage> {
+  final List<String> _months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -536,13 +551,37 @@ class _ReportsPageState extends State<ReportsPage> {
                               ],
                             ),
                             const SizedBox(height: 4),
-                            Text(
-                              "Your total sales revenue for this month decreased by 8% compared to last month.",
-                              style: TextStyle(
-                                fontFamily: 'Gilroy',
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black54,
+                            // Text(
+                            //   "Your total sales revenue for this month decreased by 8%.",
+                            //   style: TextStyle(
+                            //     fontFamily: 'Gilroy',
+                            //     fontSize: 12,
+                            //     fontWeight: FontWeight.w600,
+                            //     color: Colors.black54,
+                            //   ),
+                            // ),
+                            RichText(
+                              text: TextSpan(
+                                style: TextStyle(
+                                  fontFamily: 'Gilroy',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        "Your total sales revenue for this month decreased by ",
+                                  ),
+                                  TextSpan(
+                                    text: "8%",
+                                    style: TextStyle(
+                                      color: Color(0xffF34820),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  TextSpan(text: " compared to last month."),
+                                ],
                               ),
                             ),
                           ],
@@ -570,7 +609,7 @@ class _ReportsPageState extends State<ReportsPage> {
                                               colors: [
                                                 Color(
                                                   0xffF34820,
-                                                ).withValues(alpha: 0.84),
+                                                ).withValues(alpha: 0.64),
                                                 Color(0xffF34820),
                                               ],
                                               begin: Alignment.topCenter,
@@ -589,7 +628,7 @@ class _ReportsPageState extends State<ReportsPage> {
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
-                                    "Q${i + 1}",
+                                    _months[i].substring(0, 3),
                                     style: TextStyle(
                                       fontFamily: 'Gilroy',
                                       fontSize: 12,
