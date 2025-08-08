@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rcg_showcase/pages/alerts.dart';
+import 'package:rcg_showcase/pages/chat.dart';
+import 'package:rcg_showcase/pages/menu.dart';
 import 'package:rcg_showcase/pages/reports.dart';
 
 void main() async {
@@ -13,6 +15,8 @@ final GoRouter _router = GoRouter(
     GoRoute(path: '/', builder: (context, state) => const MainScreen()),
     GoRoute(path: '/alerts', builder: (context, state) => const AlertsPage()),
     GoRoute(path: '/reports', builder: (context, state) => const ReportsPage()),
+    GoRoute(path: '/menu', builder: (context, state) => const ChatHomePage()),
+    GoRoute(path: '/chat', builder: (context, state) => const ChatPage()),
   ],
   errorPageBuilder: (context, state) {
     return MaterialPage(
@@ -151,6 +155,104 @@ class MainScreen extends StatelessWidget {
                     ),
                     const Text(
                       "Reports Page",
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 12,
+                        fontFamily: 'Gilroy',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+            GestureDetector(
+              onTap: () {
+                context.push('/menu');
+              },
+              child: AnimatedContainer(
+                margin: const EdgeInsets.only(right: 16.0, left: 16.0),
+                width: MediaQuery.of(context).size.width,
+                height: 180,
+                padding: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32),
+                  border: Border.all(color: Colors.white12, width: 1),
+                ),
+                duration: const Duration(milliseconds: 300),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white12,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    const Text(
+                      "Dynamic Menu",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: 'Gilroy',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const Text(
+                      "Dynamic Menu Page",
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 12,
+                        fontFamily: 'Gilroy',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+            GestureDetector(
+              onTap: () {
+                context.push('/chat');
+              },
+              child: AnimatedContainer(
+                margin: const EdgeInsets.only(right: 16.0, left: 16.0),
+                width: MediaQuery.of(context).size.width,
+                height: 180,
+                padding: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32),
+                  border: Border.all(color: Colors.white12, width: 1),
+                ),
+                duration: const Duration(milliseconds: 300),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white12,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    const Text(
+                      "Chat Home Page",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: 'Gilroy',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const Text(
+                      "Chat ",
                       style: TextStyle(
                         color: Colors.white54,
                         fontSize: 12,
